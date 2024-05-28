@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import logo from './logo.svg';
+// import './App.css';
+// import { Button } from "@mui/material";
+import NavBar from "./Component/Navbar/NavBar";
+import Header from "./Component/header";
+import RouterConfig from "./Config/RouterConfig";
+// import { dark } from "@mui/material/styles/createPalette";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+
+ <RouterConfig/>
+ <NavBar/>
+
+ <Header/>
+ 
     </div>
   );
 }
