@@ -1,6 +1,6 @@
 import React from "react";
 // import { useNavigate } from "react-router-dom"
-
+import { Link } from "react-router-dom";
 import Btn from "../Button/Btn";
 import SearchIcon from "@mui/icons-material/Search";
 // import SignUp from "../Pages/signUp/Signup";
@@ -46,10 +46,11 @@ function NavBar() {
             className="text-black bg-white"
             text="Login"
           />
+              {/* <Link >Sign Up</Link> */}
           <Btn
-        //   onClick = {()=>{
-        //     navigate('./Pages/signUp/Signup')
-        //   }}
+          onClick = {()=>{
+              // navigate('./Pages/signUp/Signup')
+          }}
             variant="outlined"
             className="text-white border-white"
             text="Sign Up"
