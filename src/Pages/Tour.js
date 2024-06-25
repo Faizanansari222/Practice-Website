@@ -1,7 +1,7 @@
 import React from "react";
-import RecipeReviewCard from "./card";
-import NavBar from "../../Navbar/NavBar";
-import Footer from "../../Footer/Footer";
+import RecipeReviewCard from "../Component/Card/card";
+import NavBar from "../Component/Navbar/NavBar";
+import Footer from "../Component/Footer/Footer";
 
 function Tour() {
   return (<>

@@ -8,6 +8,7 @@ function App() {
     <div className="">
       {/* <NavBar/> */}
       <RouterConfig />
+      
 
       {/* <Header/> */}
     </div>

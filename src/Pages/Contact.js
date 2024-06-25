@@ -2,9 +2,9 @@ import React from "react";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
-import Button from "../../Button/Btn";
-import NavBar from "../../Navbar/NavBar";
-import Footer from "../../Footer/Footer";
+import Button from "../Component/Button/Btn";
+import NavBar from "../Component/Navbar/NavBar";
+import Footer from "../Component/Footer/Footer";
 function Contact() {
   return (
     <div>
@@ -19,18 +19,18 @@ function Contact() {
       <br />
       <br />
       <div className="flex  justify-evenly  items-center w-full m-auto  mb-40">
-        <div className="text-lg">
+        <div className="text-xl ">
           <div>
             <PinDropIcon />
-            <span className="ml-3">Karachi, Pakistan</span>
+            <span className="ml-3 ">Chicago, US</span>
           </div>
           <div>
             <PhoneIcon />
-            <span className="ml-3">+92 320 3558296</span>
+            <span className="ml-3">Phone: +00 151515</span>
           </div>
           <div>
             <EmailIcon />
-            <span className="ml-3">syedowaisraza5@gmail.com</span>
+            <span className="ml-3">Email: mail@mail.com</span>
           </div>
         </div>
         <div className="">

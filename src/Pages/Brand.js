@@ -1,11 +1,13 @@
 import React from "react";
-import Footer from "../../Footer/Footer";
-import NavBar from "../../Navbar/NavBar";
+import Footer from "../Component/Footer/Footer";
+import NavBar from "../Component/Navbar/NavBar";
+
 
 function Brand() {
   return (
     <div>
       <NavBar/>
+      
       <h1 className="mt-10 flex justify-center text-5xl font-sans text-gray-800">
         The Brand
       </h1>
