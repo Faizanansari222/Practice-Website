@@ -13,7 +13,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link as RouterLink } from 'react-router-dom';
+import { sendData } from "../../Config/firebase/firebaseMethod";
+import { Link as RouterLink } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -36,25 +37,16 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
 
-  function signUp(){
-    console.log(firstName);
-  }
+    sendData(firstName, lastName, email, password);
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -83,9 +75,7 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  onChange={(e) => {
-                    setFirstName(e.target.value);
-                  }}
+                  onChange={(e) => setFirstName(e.target.value)}
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -98,9 +88,7 @@ export default function SignUp() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
-                  onChange={(e) => {
-                    setLastName(e.target.value);
-                  }}
+                  onChange={(e) => setLastName(e.target.value)}
                   fullWidth
                   id="lastName"
                   label="Last Name"
@@ -111,9 +99,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <TextField
                   required
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
+                  onChange={(e) => setEmail(e.target.value)}
                   fullWidth
                   id="email"
                   label="Email Address"
@@ -124,9 +110,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <TextField
                   required
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
+                  onChange={(e) => setPassword(e.target.value)}
                   fullWidth
                   name="password"
                   label="Password"

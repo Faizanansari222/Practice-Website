@@ -16,7 +16,7 @@ const Header = () => {
     };
 
     return (
-        <header className="w-full overflow-hidden">
+        <header className="mt-16 w-full overflow-hidden">
             <Slider {...settings} className="w-full">
                 <div>
                     <img className="w-full h-auto" src="https://www.w3schools.com/w3images/chicago.jpg" alt="Image 1" />

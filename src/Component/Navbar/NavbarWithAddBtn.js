@@ -1,14 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Link } from "react-router-dom";
 import Btn from "../Button/Btn";
 import SearchIcon from "@mui/icons-material/Search";
-// import SignUp from "../Pages/signUp/Signup";
-function NavBar() {
-  const navigate = useNavigate();
+
+function NavbarWithAddBtn() {
+    const navigate = useNavigate();
   return (
-    <nav className="fixed  z-10 right-0 left-0 top-0">
-      <div className="flex bg-black items-center   justify-between pr-2">
+    <div>
+      <nav>
+      <div className="flex bg-black items-center justify-between pr-2">
         <div className="flex  text-white ">
           <Btn
             onClick={() => {
@@ -55,12 +57,19 @@ function NavBar() {
             <input
               placeholder="Search...."
               type="text"
-              className="px-2 outline-none rounded-full"
+              className="px-2 rounded-full"
             />
             <button className="p-2 pr-4 mx-0 rounded-r-full hover:bg-red-600 hover:text-white">
               <SearchIcon />
             </button>
           </div>
+          <Link to="/addproduct">
+            <Btn
+            variant= ""
+              className="text-black font-bold text-3xl p-0 rounded-full  bg-white"
+              text="+"
+            />
+          </Link>
           <Link to="/login">
             <Btn
               variant="contained"
@@ -83,7 +92,8 @@ function NavBar() {
         </div>
       </div>
     </nav>
-  );
+    </div>
+  )
 }
 
-export default NavBar;
+export default NavbarWithAddBtn
