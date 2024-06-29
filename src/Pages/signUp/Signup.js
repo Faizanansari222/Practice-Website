@@ -13,8 +13,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { sendData } from "../../Config/firebase/firebaseMethod";
-import { Link as RouterLink } from "react-router-dom";
+import { signUpUser } from "../../Config/firebase/firebaseMethod";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -42,10 +42,12 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    sendData(firstName, lastName, email, password);
+    signUpUser(email, password, navigate);
+   
   };
 
   return (
@@ -129,6 +131,7 @@ export default function SignUp() {
               </Grid>
             </Grid>
             <Button
+            className="bg-black"
               type="submit"
               fullWidth
               variant="contained"
@@ -138,9 +141,11 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link component={RouterLink} to="/login" variant="body2">
+               <button onClick={()=>navigate("/login")}>
+                <Link className="text-black" component={RouterLink} to="/login" variant="body2">
                   {"Already have an account? Sign in"}
                 </Link>
+                </button>
               </Grid>
             </Grid>
           </Box>

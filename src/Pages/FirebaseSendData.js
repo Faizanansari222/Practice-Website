@@ -1,21 +1,21 @@
-import React from "react";
-import { sendData } from "../Config/firebase/firebaseMethod";
+// import React from "react";
+// // import { sendData } from "../Config/firebase/firebaseMethod";
 
-export default function FirebaseSendData() {
- const data = () => {
-    const obj = {
-      firstName: "Faizan",
-      lastName: "Ansari",
-      email: "faizanraza@gmail.com",
-      age: "22"
-    };
-    sendData(obj)
-   };
+// export default function FirebaseSendData() {
+//  const data = () => {
+//     const obj = {
+//       firstName: "Faizan",
+//       lastName: "Ansari",
+//       email: "faizanraza@gmail.com",
+//       age: "22"
+//     };
+//     // sendData(obj)
+//    };
 
-   return(<>
+//    return(<>
     
-    <button onClick={data}>Click</button>
-    </>
+//     <button onClick={data}>Click</button>
+//     </>
   
-  );
-}
+//   );
+// }

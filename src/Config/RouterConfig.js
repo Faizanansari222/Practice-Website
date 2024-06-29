@@ -11,6 +11,7 @@ import Product from "../Pages/Product";
 import FirebaseSendData from "../Pages/FirebaseSendData";
 import ProductDetail from "../Pages/ProductDetail";
 import AddPro from '../Pages/AddPro';
+import ForgetPass from "../Pages/Login/ForgetPass";
 // import FirebasePractice from "../Pages/firebasePractice";
 // import NavBar from "../Component/Navbar/NavBar";
 
@@ -33,6 +34,7 @@ function RouterConfig() {
           <Route path="/firebase" element={<FirebaseSendData/> }/>
           {/* <Route path="/firebase" element={<FirebasePractice/> }/> */}
           <Route path="/login" element={<Login/> }/>
+          <Route path="/forgetpassword" element={<ForgetPass/> }/>
           <Route path="/detail/:id" element={<ProductDetail/> }/>
           <Route path="/*" element={<NotFound/> }/>
         </Routes>
