@@ -2,10 +2,12 @@ import { getDatabase, push, ref } from "firebase/database";
 import app from "./firebaseConfig";
 import { createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import Swal from "sweetalert2";
+import { addDoc, collection, doc, getFirestore, setDoc } from "firebase/firestore";
 // import { useNavigate } from "react-router-dom";
 
-const db = getDatabase(app);
+const db = getFirestore(app);
 const auth = getAuth(app)
+
 // const navigate= useNavigate()
 // export const sendData = (body) => {
 //   const { firstName, lastName, email, password } = body;
@@ -19,7 +21,7 @@ export const signUpUser =(email,password, navigate)=>{
   createUserWithEmailAndPassword(auth,email, password) .then(res=>{
     // navigate("")
     Swal.fire({
-      position: "",
+      position: "center",
       icon: "success",
       title: "Your are Sign-Up Successfully",
       showConfirmButton: false,
@@ -37,15 +39,16 @@ export const signUpUser =(email,password, navigate)=>{
   })
 }
 
-export const loginUser=(email,password)=>{
+export const loginUser=(email,password, navigate)=>{
 signInWithEmailAndPassword(auth,email,password).then(res=>{
   Swal.fire({
-    position: "",
+    position: "center",
     icon: "success",
     title: "Your are Logined Successfully",
     showConfirmButton: false,
     timer: 1500
   });
+  navigate("/product")
 }).catch(err=>{
 
   Swal.fire({
@@ -77,4 +80,15 @@ sendPasswordResetEmail(auth, email).then(res=>{
   });
 })
 
+}
+
+
+export const sendDataInDB = () => {
+const dc = doc( db, "user");
+setDoc(dc, { firstName:"faizan", lastName:'Raza', email:'hDjQO@example.com' }).then(res=>{
+  console.log(res);
+}).catch(err=>{
+  console.log(err);
+})
+ 
 }

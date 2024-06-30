@@ -2,14 +2,16 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Btn from "../Button/Btn";
+import Logo from "./Image/ShoppingVilla LOGO 04.png"
 import SearchIcon from "@mui/icons-material/Search";
 // import SignUp from "../Pages/signUp/Signup";
 function NavBar() {
   const navigate = useNavigate();
   return (
     <nav className="fixed  z-10 right-0 left-0 top-0">
-      <div className="flex bg-black items-center   justify-between pr-2">
-        <div className="flex  text-white ">
+      <div className="flex bg-black items-center px-5   justify-between pr-2">
+        <div className="flex  text-white   justify-between items-center">
+          <img className="mr-5 w-24 h-full "  src={Logo} alt="#" />
           <Btn
             onClick={() => {
               navigate("/");

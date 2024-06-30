@@ -34,9 +34,9 @@ function Product() {
             className="bg-white hover:shadow-lg pointer-events-auto focus:cursor-pointer rounded-lg overflow-hidden ring-4 ring-black hover:ring-red-400 hover:transition-all ring-opacity-40 max-w-sm"
           >
             <div className="relative">
-              <div className="h-80 flex items-center justify-center">
+              <div className=" my-5 h-80 flex items-center justify-center">
                 <img
-                  className="w-52"
+                  className="w-56 "
                   src={product.image}
                   alt={product.title}
                 />

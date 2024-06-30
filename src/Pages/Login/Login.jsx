@@ -42,7 +42,7 @@ function SignIn() {
   const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault();
-    loginUser(email, password);
+    loginUser(email, password, navigate);
   };
 
   return (

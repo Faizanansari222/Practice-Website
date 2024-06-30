@@ -4,14 +4,16 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Link } from "react-router-dom";
 import Btn from "../Button/Btn";
 import SearchIcon from "@mui/icons-material/Search";
+import Logo from "../Navbar/Image/ShoppingVilla LOGO 04.png"
 
-function NavbarWithAddBtn() {
+function NavbarWithAddBtn() { 
     const navigate = useNavigate();
   return (
     <div>
       <nav>
-      <div className="flex bg-black items-center justify-between pr-2">
-        <div className="flex  text-white ">
+      <div className="flex p-1 px-3  bg-black items-center justify-between pr-2">
+        <div className="flex justify-between items-center   text-white ">
+        <img className="mr-5 w-32 pr-5 h-full "  src={Logo} alt="#" />
           <Btn
             onClick={() => {
               navigate("/");

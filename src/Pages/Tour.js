@@ -6,7 +6,7 @@ import Footer from "../Component/Footer/Footer";
 function Tour() {
   return (<>
     <NavBar/>
-    <div className="mt-20 bg-black flex justify-center text-white">
+    <div className="mt-16 bg-black flex justify-center text-white">
 
       <div className="container">
         <div className="my-9 ">

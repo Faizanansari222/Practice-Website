@@ -13,7 +13,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { signUpUser } from "../../Config/firebase/firebaseMethod";
+import { sendDataInDB, signUpUser } from "../../Config/firebase/firebaseMethod";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 function Copyright(props) {
@@ -46,7 +46,8 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    signUpUser(email, password, navigate);
+    ;
+  
    
   };
 
@@ -71,7 +72,7 @@ export default function SignUp() {
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
@@ -130,10 +131,12 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
+            <button onClick={sendDataInDB}>Submit</button>
             <Button
             className="bg-black"
               type="submit"
               fullWidth
+              // onClick = {sendDataInDB}
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
