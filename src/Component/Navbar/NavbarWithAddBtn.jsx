@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Link } from "react-router-dom";
 import Btn from "../Button/Btn";
 import SearchIcon from "@mui/icons-material/Search";
 import Logo from "../Navbar/Image/ShoppingVilla LOGO 04.png"
+import { logOut } from "../../Config/firebase/firebaseMethod";
 
 function NavbarWithAddBtn() { 
     const navigate = useNavigate();
-  return (
+    const [logOutBtn, setLogOutBtn] = useState(false);
+    return (
     <div>
       <nav>
       <div className="flex p-1 px-3  bg-black items-center justify-between pr-2">
@@ -72,25 +74,43 @@ function NavbarWithAddBtn() {
               text="+"
             />
           </Link>
-          <Link to="/login">
-            <Btn
-              variant="contained"
-              className="text-black bg-white"
-              text="Login"
-            />
-          </Link>
-          {/* <Link >Sign Up</Link> */}
-          <Link to="/signup">
-            {" "}
-            <Btn
-              onClick={() => {
-                // navigate('./Pages/signUp/Signup')
-              }}
-              variant="outlined"
-              className="text-white border-white"
-              text="Sign Up"
-            />
-          </Link>
+          {logOutBtn ? (
+            <>
+              {" "}
+              <Link to="/login">
+                <Btn
+                  variant="contained"
+                  className="text-black bg-white"
+                  text="Login"
+                />
+              </Link>
+              // <Link>Sign Up</Link>
+              <Link to="/signup">
+                <Btn
+                  onClick={() => {
+                    // navigate('./Pages/signUp/Signup')
+                  }}
+                  variant="outlined"
+                  className="text-white border-white"
+                  text="Sign Up"
+                />
+              </Link>
+            </>
+          ) : (
+            <>
+              {" "}
+              <Btn
+                onClick={() => {
+                 logOut();
+                 setLogOutBtn(true)
+                 navigate("/login",{replace:true})
+                }}
+                variant="outlined"
+                className="text-white border-white"
+                text="Log Out"
+              />
+            </>
+          )}
         </div>
       </div>
     </nav>

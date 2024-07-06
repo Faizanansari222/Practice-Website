@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {sendProductData} from "../Config/firebase/firebaseMethod";
 // import { adsInfo } from "../../firebasedConnect/firebaseConnect";
 
 const AddPro = () => {
@@ -7,7 +8,18 @@ const AddPro = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [adImage, setAdImage] = useState("");
+//   const [formData, setFormData] = useState({
+// title : "",
+// describetion : "",
+// price : "",
+
+//   });
   const navigate = useNavigate();
+  const handleSubmit = () => {
+    sendProductData(title,description,price,navigate);
+
+    // console.log();
+  }
   
 //   const postAds = async (e) => {
 //     e.preventDefault()
@@ -45,6 +57,7 @@ const AddPro = () => {
               <input
                 onChange={(e) => setTitle(e.target.value)}
                 type="text"
+                // value={formData.title}
                 id="name"
                 name="name"
                 placeholder="Title..."
@@ -64,6 +77,8 @@ const AddPro = () => {
                 type="text"
                 id="name"
                 name="name"
+                
+                // value={formData.price}
                 placeholder="Price in Rs."
                 required
                 class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
@@ -81,6 +96,8 @@ const AddPro = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 name="message"
                 rows="4"
+                
+                // value={formData.describetion}
                 placeholder="Something about your product"
                 class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
               ></textarea>
@@ -94,7 +111,7 @@ const AddPro = () => {
               </label>
               <input
                 type="file"
-                onChange={(e) => setAdImage(e.target.files[0])}
+                // onChange={(e) => setAdImage(e.target.files[0])}
                 id="email"
                 name="email"
                 placeholder="john@example.com"
@@ -103,7 +120,7 @@ const AddPro = () => {
               />
             </div>
             <button
-            //   onClick={postAds}
+              onClick={handleSubmit}
               type="submit"
               class="bg-[#002f34] text-white px-4 py-2 rounded-md hover:bg-[#002f34d2] focus:outline-none focus:shadow-outline-blue"
             >

@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useState } from "react";
+// src/components/SignUp.js
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,26 +13,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { sendDataInDB, signUpUser } from "../../Config/firebase/firebaseMethod";
+import { signUpUser } from "../../Config/firebase/firebaseMethod";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const defaultTheme = createTheme();
 
@@ -42,15 +24,11 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    ;
-  
-   
-  };
-
+    signUpUser(firstName, lastName, email, password, navigate)}
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -69,12 +47,7 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box
-            component="form"
-            noValidate
-            // onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
-          >
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -124,19 +97,14 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
             </Grid>
-            <button onClick={sendDataInDB}>Submit</button>
             <Button
-            className="bg-black"
               type="submit"
               fullWidth
-              // onClick = {sendDataInDB}
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
@@ -144,16 +112,13 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-               <button onClick={()=>navigate("/login")}>
-                <Link className="text-black" component={RouterLink} to="/login" variant="body2">
+                <Link component={RouterLink} to="/login" variant="body2">
                   {"Already have an account? Sign in"}
                 </Link>
-                </button>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
   );

@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Btn from "../Button/Btn";
-import Logo from "./Image/ShoppingVilla LOGO 04.png"
+import Logo from "./Image/ShoppingVilla LOGO 04.png";
 import SearchIcon from "@mui/icons-material/Search";
+import { logOut } from "../../Config/firebase/firebaseMethod";
 // import SignUp from "../Pages/signUp/Signup";
 function NavBar() {
   const navigate = useNavigate();
+  const [logOutBtn, setLogOutBtn] = useState(false);
   return (
     <nav className="fixed  z-10 right-0 left-0 top-0">
       <div className="flex bg-black items-center px-5   justify-between pr-2">
         <div className="flex  text-white   justify-between items-center">
-          <img className="mr-5 w-24 h-full "  src={Logo} alt="#" />
+          <img className="mr-5 w-24 h-full " src={Logo} alt="#" />
           <Btn
             onClick={() => {
               navigate("/");
@@ -63,25 +65,44 @@ function NavBar() {
               <SearchIcon />
             </button>
           </div>
-          <Link to="/login">
-            <Btn
-              variant="contained"
-              className="text-black bg-white"
-              text="Login"
-            />
-          </Link>
-          {/* <Link >Sign Up</Link> */}
-          <Link to="/signup">
-            {" "}
-            <Btn
-              onClick={() => {
-                // navigate('./Pages/signUp/Signup')
-              }}
-              variant="outlined"
-              className="text-white border-white"
-              text="Sign Up"
-            />
-          </Link>
+          {logOutBtn ? (
+            <>
+              {" "}
+              <Link to="/login">
+                <Btn
+                  variant="contained"
+                  className="text-black bg-white"
+                  text="Login"
+                />
+              </Link>
+              // <Link>Sign Up</Link>
+              <Link to="/signup">
+                <Btn
+                  onClick={() => {
+                    // navigate('./Pages/signUp/Signup')
+                  }}
+                  variant="outlined"
+                  className="text-white border-white"
+                  text="Sign Up"
+                />
+              </Link>
+            </>
+          ) : (
+            <>
+              {" "}
+              <Btn
+                onClick={() => {
+                 logOut();
+                 setLogOutBtn(true)
+                 navigate("/login",{replace:true});
+
+                }}
+                variant="outlined"
+                className="text-white border-white"
+                text="Log Out"
+              />
+            </>
+          )}
         </div>
       </div>
     </nav>
